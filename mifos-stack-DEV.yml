@@ -5,11 +5,11 @@ networks:
     driver: bridge
 services:  
   mifos-app-server:
-    image: com.mx.fintecheando.tomcat.mifosx.19.07
+    image: victorsam/com.mx.fintecheando.tomcat.mifosx.19.07
     restart: always
     ports:
       - 8443:8443
-      - 8080:8080
+      - 8081:8081
     networks:
       - mifos
     depends_on:
@@ -22,7 +22,7 @@ services:
       interval: 5s
       retries: 20        
   mifos-db-server:
-    image: com.mx.fintecheando.mysql.mifosx.19.07
+    image: victorsam/com.mx.fintecheando.mysql.mifosx.19.07
     restart: always
     ports:
       - 3306:3306
@@ -35,7 +35,7 @@ services:
     networks:
       - mifos  
   mifos-sms-server:
-    image: com.mx.fintecheando.activemq.mifosx.19.07
+    image: victorsam/com.mx.fintecheando.activemq.mifosx.19.07
     restart: always
     environment:
       ACTIVEMQ_CONFIG_MINMEMORY: 512
